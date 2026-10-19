@@ -4,6 +4,7 @@
 
 | Package | Type | Description |
 | --- | --- | --- |
+| [`amail`](https://github.com/KorigamiK/amail) | Formula, macOS | Fast Apple Mail CLI for humans and coding agents. |
 | [`sioyek-arxiv`](https://github.com/KorigamiK/sioyek-arxiv) | Formula, macOS | Save arXiv papers with descriptive filenames and open them in Sioyek from a browser bookmarklet. |
 | [`supermoan`](https://github.com/KorigamiK/supermoan) | Cask, macOS | Native C++ natural dictation. |
 
