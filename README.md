@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | [`amail`](https://github.com/KorigamiK/amail) | Formula, macOS | Fast Apple Mail CLI for humans and coding agents. |
 | [`focusclock`](https://github.com/KorigamiK/focusclock) | Formula, macOS | Native clock overlay that floats above all windows to help you focus. |
-| [`sioyek-arxiv`](https://github.com/KorigamiK/sioyek-arxiv) | Formula, macOS | Save arXiv papers with descriptive filenames and open them in Sioyek from a browser bookmarklet. |
+| [`sioyek-open`](https://github.com/KorigamiK/sioyek-open) | Formula, macOS | Open arXiv papers, web PDFs, and local PDFs in Sioyek from a browser bookmarklet. |
 | [`supermoan`](https://github.com/KorigamiK/supermoan) | Cask, macOS | Native C++ natural dictation. |
 
 ## FocusClock
@@ -28,22 +28,28 @@ as a build dependency. Install the Command Line Tools with
 See the [project documentation](https://github.com/KorigamiK/focusclock) for
 positioning, fonts, colours and other options.
 
-## arXiv → Sioyek
+## Open in Sioyek
 
 Install Sioyek separately, then run:
 
 ```sh
-brew install korigamik/tap/sioyek-arxiv
-sioyek-arxiv setup --browser Firefox
+brew install korigamik/tap/sioyek-open
+sioyek-open setup --browser Firefox
 ```
 
 Drag **Open in Sioyek** from the setup page onto the bookmarks toolbar. Click it
-on an arXiv abstract or HTML page to save the PDF into `~/Downloads/Papers` with
-its title and version, then open it in Sioyek.
+on an arXiv page or a direct PDF URL. Web PDFs save to `~/Downloads/Papers`;
+arXiv papers keep descriptive title-and-version names. Local `file://` PDFs
+open at their existing location. If Firefox restricts bookmarklets in its PDF
+viewer, copy the URL, click the bookmark on an ordinary web page, and paste it
+into the prompt.
 
-Existing installations retain their settings and bookmarklet URL. Use
-`sioyek-arxiv setup --papers-dir ~/Documents/Papers` to choose a different
-folder. See the [project documentation](https://github.com/KorigamiK/sioyek-arxiv)
+Existing installations retain their settings and papers. Homebrew migrates the
+old `sioyek-arxiv` formula name, and the old command and URL scheme remain
+aliases. After upgrading, run `sioyek-open setup --browser Firefox` and replace
+the old browser bookmark with the new button to enable PDFs beyond arXiv.
+Use `sioyek-open setup --papers-dir ~/Documents/Papers` to choose a different
+folder. See the [project documentation](https://github.com/KorigamiK/sioyek-open)
 for setup, upgrades, and removal.
 
 ## How do I install these formulae?
