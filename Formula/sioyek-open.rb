@@ -1,19 +1,18 @@
 class SioyekOpen < Formula
   desc "Open arXiv, web PDFs, and local PDFs in Sioyek from a bookmarklet"
   homepage "https://github.com/KorigamiK/sioyek-open"
-  url "https://github.com/KorigamiK/sioyek-open/releases/download/v0.2.0/sioyek-open-0.2.0.tar.gz"
-  sha256 "d35f405f4104a5d2d689b84c43faddde24392dac82edcc50586447289bd1d9d6"
+  url "https://github.com/KorigamiK/sioyek-open/releases/download/v0.3.0/sioyek-open-0.3.0.tar.gz"
+  sha256 "79c8daeffa57cf6e2eac1dcd7ffeffeef8758008c97e77e03704e356167d5740"
   license "GPL-3.0-only"
 
   depends_on :macos
   depends_on "python@3.15"
 
   def install
-    libexec.install "sioyek_arxiv.py"
+    libexec.install "sioyek_open.py"
     (bin/"sioyek-open").write_env_script formula_opt_bin("python@3.15")/"python3.15",
-                                       [opt_libexec/"sioyek_arxiv.py"],
+                                       [opt_libexec/"sioyek_open.py"],
                                        SIOYEK_OPEN_LAUNCHER: opt_bin/"sioyek-open"
-    bin.install_symlink "sioyek-open" => "sioyek-arxiv"
   end
 
   def caveats
@@ -22,7 +21,6 @@ class SioyekOpen < Formula
         sioyek-open setup --browser Firefox
 
       Drag "Open in Sioyek" from the setup page to your bookmarks toolbar.
-      Existing settings and downloaded papers are preserved.
       Replace an old arXiv-only bookmark with the new button to enable other PDFs.
 
       Before uninstalling this formula, remove the per-user handler with:

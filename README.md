@@ -44,10 +44,6 @@ open at their existing location. If Firefox restricts bookmarklets in its PDF
 viewer, copy the URL, click the bookmark on an ordinary web page, and paste it
 into the prompt.
 
-Existing installations retain their settings and papers. Homebrew migrates the
-old `sioyek-arxiv` formula name, and the old command and URL scheme remain
-aliases. After upgrading, run `sioyek-open setup --browser Firefox` and replace
-the old browser bookmark with the new button to enable PDFs beyond arXiv.
 Use `sioyek-open setup --papers-dir ~/Documents/Papers` to choose a different
 folder. See the [project documentation](https://github.com/KorigamiK/sioyek-open)
 for setup, upgrades, and removal.
