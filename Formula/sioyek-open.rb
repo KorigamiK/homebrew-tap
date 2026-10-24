@@ -1,8 +1,8 @@
 class SioyekOpen < Formula
   desc "Open arXiv, web PDFs, and local PDFs in Sioyek from a bookmarklet"
   homepage "https://github.com/KorigamiK/sioyek-open"
-  url "https://github.com/KorigamiK/sioyek-open/releases/download/v0.3.0/sioyek-open-0.3.0.tar.gz"
-  sha256 "79c8daeffa57cf6e2eac1dcd7ffeffeef8758008c97e77e03704e356167d5740"
+  url "https://github.com/KorigamiK/sioyek-open/releases/download/v0.4.0/sioyek-open-0.4.0.tar.gz"
+  sha256 "611012eb52b2ecd69a9106435ea2a70e1235449ac22da2d609eacb2a26c22845"
   license "GPL-3.0-only"
 
   depends_on :macos
@@ -21,17 +21,19 @@ class SioyekOpen < Formula
         sioyek-open setup --browser Firefox
 
       Drag "Open in Sioyek" from the setup page to your bookmarks toolbar.
-      Replace an old arXiv-only bookmark with the new button to enable other PDFs.
+      Replace an older bookmark with the new button to capture page metadata.
+      Index existing PDFs with: sioyek-open library scan
 
       Before uninstalling this formula, remove the per-user handler with:
         sioyek-open uninstall
-      Saved PDFs and settings are kept.
+      Saved PDFs, the local library and settings are kept.
     EOS
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/sioyek-open --version")
     assert_match "sioyek-open://open?url=", shell_output("#{bin}/sioyek-open bookmarklet --print")
+    assert_match '"schema_version": 1', shell_output("#{bin}/sioyek-open library export")
     assert_match "Use an arXiv", shell_output(
       "#{bin}/sioyek-open open --no-open ftp://example.com/paper.pdf 2>&1", 1
     )
