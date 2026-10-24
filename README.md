@@ -44,6 +44,12 @@ open at their existing location. If Firefox restricts bookmarklets in its PDF
 viewer, copy the URL, click the bookmark on an ordinary web page, and paste it
 into the prompt.
 
+The local library stores metadata beside the PDFs in `library.sqlite3`. Replace
+older bookmarks with the current setup button to capture citation metadata from
+article pages. Use `sioyek-open library scan` to index existing PDFs,
+`sioyek-open library list` to inspect the catalog and
+`sioyek-open library export` to export JSON.
+
 Use `sioyek-open setup --papers-dir ~/Documents/Papers` to choose a different
 folder. See the [project documentation](https://github.com/KorigamiK/sioyek-open)
 for setup, upgrades, and removal.
