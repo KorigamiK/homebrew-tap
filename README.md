@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | [`amail`](https://github.com/KorigamiK/amail) | Formula, macOS | Fast Apple Mail CLI for humans and coding agents. |
 | [`focusclock`](https://github.com/KorigamiK/focusclock) | Formula, macOS | Native clock overlay that floats above all windows to help you focus. |
+| [`researchpocket`](https://github.com/ResearchPocket/researchpocket.github.io) | Formula, macOS | Local-first personal library for saving, curating, and syncing URLs. |
 | [`sioyek-open`](https://github.com/KorigamiK/sioyek-open) | Formula, macOS | Open arXiv papers, web PDFs, and local PDFs in Sioyek from a browser bookmarklet. |
 | [`supermoan`](https://github.com/KorigamiK/supermoan) | Cask, macOS | Native C++ natural dictation. |
 
@@ -27,6 +28,35 @@ as a build dependency. Install the Command Line Tools with
 
 See the [project documentation](https://github.com/KorigamiK/focusclock) for
 positioning, fonts, colours and other options.
+
+## ResearchPocket
+
+Install the `research` CLI, create a library, and register the browser
+capture handler:
+
+```sh
+brew install korigamik/tap/researchpocket
+research init
+research capture install
+```
+
+Create a bookmark named **Save to ResearchPocket** and paste the bookmarklet
+into its URL field. Copy it with
+`curl -fsSL https://raw.githubusercontent.com/ResearchPocket/researchpocket.github.io/main/bookmarklet.js | pbcopy`.
+Click it on any web page to save that page locally. The handler lives in
+`~/Applications/ResearchPocket Capture.app` and is bound to your library.
+
+To keep the full page of every capture as Markdown, configure Firecrawl once:
+
+```sh
+printf '%s' "$FIRECRAWL_API_KEY" | \
+  research enrich configure firecrawl --api-key-stdin --on-capture
+```
+
+Run `research capture uninstall` before `brew uninstall researchpocket`; your
+library is kept. See the
+[project documentation](https://github.com/ResearchPocket/researchpocket.github.io)
+for sync, the terminal UI, and the hosted owner app.
 
 ## Open in Sioyek
 
