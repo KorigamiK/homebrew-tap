@@ -1,8 +1,8 @@
 class Researchpocket < Formula
   desc "Local-first personal library for saving, curating, and syncing URLs"
   homepage "https://researchpocket.github.io/"
-  url "https://github.com/ResearchPocket/researchpocket.github.io/releases/download/v2.3.0/research-v2.3.0-macos-arm64.tar.gz"
-  sha256 "b989b1ae4feb79f449e03de76dc9fa240b7cd61a34e9263fb13dbf2455192783"
+  url "https://github.com/ResearchPocket/researchpocket.github.io/releases/download/v2.4.0/research-v2.4.0-macos-arm64.tar.gz"
+  sha256 "efc641868126a909f1b42833fad8dd0b36890e9b42ff3d51a75e410edd80782d"
   license "Apache-2.0"
 
   livecheck do
@@ -14,8 +14,8 @@ class Researchpocket < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/ResearchPocket/researchpocket.github.io/releases/download/v2.3.0/research-v2.3.0-macos-amd64.tar.gz"
-      sha256 "df2c173a5d1b777d6859ae0967747a58542a5f78fba6494f396554875b67b2a8"
+      url "https://github.com/ResearchPocket/researchpocket.github.io/releases/download/v2.4.0/research-v2.4.0-macos-amd64.tar.gz"
+      sha256 "9390a8661f679af1a188594c94a17353d17d62782bb500e6f288cf65b16b3d03"
     end
   end
 
