@@ -42,7 +42,7 @@ research capture install
 
 Create a bookmark named **Save to ResearchPocket** and paste the bookmarklet
 into its URL field. Copy it with
-`curl -fsSL https://raw.githubusercontent.com/ResearchPocket/researchpocket.github.io/main/bookmarklet.js | pbcopy`.
+`research capture bookmarklet | pbcopy`.
 Click it on any web page to save that page locally. The handler lives in
 `~/Applications/ResearchPocket Capture.app` and is bound to your library.
 
@@ -50,7 +50,7 @@ To keep the full page of every capture as Markdown, configure Firecrawl once:
 
 ```sh
 printf '%s' "$FIRECRAWL_API_KEY" | \
-  research enrich configure firecrawl --api-key-stdin --on-capture
+  research enrich configure firecrawl --api-key-stdin
 ```
 
 Run `research capture uninstall` before `brew uninstall researchpocket`; your

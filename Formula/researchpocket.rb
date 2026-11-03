@@ -28,16 +28,16 @@ class Researchpocket < Formula
       Create a library (or connect an existing one with `research sync connect`):
         research init
 
-      Save links from your browser by registering the capture handler and
-      copying the bookmarklet into a new bookmark's URL field:
+      Save links from your browser: register the capture handler, then paste
+      the copied bookmarklet into a new bookmark's URL field:
         research capture install
-        curl -fsSL https://raw.githubusercontent.com/ResearchPocket/researchpocket.github.io/v#{version}/bookmarklet.js | pbcopy
+        research capture bookmarklet | pbcopy
 
       To keep the full page of every capture as Markdown with Firecrawl:
-        printf '%s' "$FIRECRAWL_API_KEY" | research enrich configure firecrawl --api-key-stdin --on-capture
+        printf '%s' "$FIRECRAWL_API_KEY" | research enrich configure firecrawl --api-key-stdin
 
-      If the capture handler was installed by ResearchPocket 2.3.0 or earlier,
-      run `research capture install` once more after `brew upgrade`.
+      The handler keeps working across `brew upgrade`. One installed by
+      ResearchPocket 2.3.0 or earlier needs `research capture install` once.
       Before uninstalling, remove the handler with:
         research capture uninstall
       Your library and settings are kept.
