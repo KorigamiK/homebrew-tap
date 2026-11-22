@@ -21,10 +21,25 @@ focusclock -br -B 50
 
 This places the clock in the bottom-right corner with a 50-point bottom margin.
 Press Ctrl-C in that Terminal to stop it. FocusClock uses the primary display
-and has no Dock icon or app window to open. Homebrew builds it from source,
-so CMake and the Xcode Command Line Tools are required; Homebrew installs CMake
-as a build dependency. Install the Command Line Tools with
-`xcode-select --install` if needed.
+unless you pass `--monitor secondary`, and has no Dock icon or app window to
+open. Homebrew builds it from source, so CMake and the Xcode Command Line Tools
+are required; Homebrew installs CMake as a build dependency. Install the
+Command Line Tools with `xcode-select --install` if needed.
+
+To start the clock at every login, save the options you like and start the
+service:
+
+```sh
+mkdir -p ~/.config/focusclock
+echo "-br -B 50" > ~/.config/focusclock/config
+brew services start focusclock
+```
+
+The service runs `focusclock` without options, which reads them from
+`~/.config/focusclock/config`. Run `brew services restart focusclock` after
+editing that file, and `brew services stop focusclock` to stop the clock and
+remove it from login. If the clock does not appear, check
+`$(brew --prefix)/var/log/focusclock.log`.
 
 See the [project documentation](https://github.com/KorigamiK/focusclock) for
 positioning, fonts, colours and other options.
